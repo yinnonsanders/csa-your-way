@@ -3,11 +3,6 @@ from vegetables import *
 import random
 import math
 
-user1 = algorithm.User(1, {'onions':1, 'potatoes':1, 'celery':1, 'carrots':1, 'squash': 1}, 1)
-user2 = algorithm.User(2, {'onions':1, 'potatoes':1, 'celery':1, 'carrots':1, 'squash': 1}, 1)
-user3 = algorithm.User(3, {'onions':1, 'potatoes':1, 'celery':1, 'carrots':2, 'squash': 1}, 1)
-
-
 userList = []
 
 for user in range(25):
@@ -16,7 +11,7 @@ for user in range(25):
     c = random.randint(0, 10)
     d = random.randint(0, 10)
     e = random.randint(0, 10)
-    userList.append(algorithm.User(user, {'onions':a, 'potatoes':b, 'celery':c, 'carrots':d, 'squash':e}, 1))
+    userList.append(algorithm.User(user, {'onions':a, 'potatoes':b, 'celery':c, 'carrots':d, 'squash':e}, random.randint(1,3)))
 
 yielddict = {'onions': 50, 'potatoes':50, 'celery': 50, 'carrots':50, 'squash': 50}
 

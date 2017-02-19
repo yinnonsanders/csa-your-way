@@ -54,7 +54,7 @@ class User(object):
             total += self.preferences[veg]*vegetablePrices[veg]
         
         for veg in vegetablePrices:
-            weightedpref[veg] = self.preferences[veg]/total
+            weightedpref[veg] = self.preferences[veg]/total * self.shares
         
         self.preferences = weightedpref
 
