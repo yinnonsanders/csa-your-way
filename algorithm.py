@@ -23,12 +23,15 @@ class Box(object):
 class User(object):
     
     def __init__(self, id, preferences, shares):
-    """
-    input id: int that points to costumer's id
-    input preferences: dictionary that correspond to user produce preferences, 0 to 10
-    input shares: int that equals the number of shares that user owns
-    """
-    
+        """
+        input id: int that points to costumer's id
+        input preferences: dictionary that correspond to user produce preferences, 0 to 10
+        input shares: int that equals the number of shares that user owns
+        """
+        
+        self.id = id
+        self.preferences = preferences
+        self.shares = shares
 
     def get_box(self, yieldDict, totalPreferences):
         """returns a box object based on preferences and yield
@@ -38,15 +41,10 @@ class User(object):
         box = Box(self.id)
         
         for vegetable in vegetableList:
-            amount = self.preferences[vegetable] *yieldDict[vegetable]/ totalPreference[vegetable]
+            amount = self.preferences[vegetable] *yieldDict[vegetable]/totalPreferences[vegetable]
             box.add(vegetable, amount)
             
         return box
-   
-
-        prices = self.get_scaled_prices(vegetablePrices)
-        for vegetable in vegetableList:
-             
         
     def weighted(self):
         """Returns a weighted dictionary of preferences"""
