@@ -27,3 +27,14 @@ class User(object):
     input preferences: dictionary that correspond to user produce preferences, 0 to 10
     input shares: int that equals the number of shares that user owns
     """
+    
+    def get_box():
+
+    
+def get_distribution(userList, yieldDicts):
+    """returns a list of boxes
+    yieldDicts: weekly produce yield
+    userList" list of users
+    """
+    
+    
