@@ -17,11 +17,12 @@ class Box(object):
         amount is an int or float.
         """
         
+        
         self.items[vegetable] = amount
 
 class User(object):
     
-    def __init__(self, id, preferences, shares, box):
+    def __init__(self, id, preferences, shares):
     """
     input id: int that points to costumer's id
     input preferences: dictionary that correspond to user produce preferences, 0 to 10
@@ -29,17 +30,18 @@ class User(object):
     """
     
 
-    def get_box(self, yieldDict):
+    def get_box(self, yieldDict, totalPreferences):
         """returns a box object based on preferences and yield
         input yieldDict: Dictionary that tells the weekly yield
         """
-        prices = get_scaled_prices(vegetablePrices)
-        for vegetable in vegetableList:
-             
+        box = Box(self.id)
         
-    def get_scaled_prices(vegetablePrices):    
-        pass
-
+        for vegetable in vegetableList:
+            amount = self.preferences[vegetable] *yieldDict[vegetable]/ totalPreference[vegetable]
+            box.add(vegetable, amount)
+            
+        return box
+   
     
 def get_distribution(userList, yieldDict):
 
@@ -47,9 +49,22 @@ def get_distribution(userList, yieldDict):
     yieldDict: weekly produce yield
     userList" list of users
     """
+    totalPreference = {}
+    for vegetable in vegetableList:
+        totalPreference[vegetable] = 0
+    
     boxList = []
     for user in userList:
-        boxList.append(user.get_box(yieldDict))
+        user.weighted() #this method weights the 
+        
+        for vegetable in vegetableList:
+            totalPreference[vegetable] += user.preferences[vegetable]
+  
+    
+    
+    for user in userList:
+        boxList.append(user.get_box(yieldDict, totalPreference))
+        
     return boxList
     
     
