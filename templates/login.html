@@ -1,16 +1,11 @@
 {% extends "base.html" %}
 {% block title %}CSA Customers{% endblock %}
 {% block content %}
-  <div class="header">
-<h1>Farmr: CSA Your Way</h1>
-  <h3>Farm Sharing Made Easy</h3>
-  </div>
   {% if error %}
   <div class="row">
     <h1>{{ error }}</h1>
   </div>
   {% endif %}
-  <h1>Consumers:</h1>
 <form action="/customers/update" method="post">
 Username: <br> <input type="text" name="username"><br>
 Password: <br><input type="password" name="password"><br>

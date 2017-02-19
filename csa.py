@@ -36,7 +36,7 @@ class UserEntry(db.Model):
 @nav.navigation()
 def mynavbar():
     return Navbar(
-        'CSA Your Way',
+        'CSA Your Way: Farm Sharing Made Easy',
         View('Home', 'index'),
         Subgroup('Customers',
         	View('New Customer', 'new_customer'),

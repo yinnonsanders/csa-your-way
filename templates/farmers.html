@@ -1,13 +1,8 @@
 {% extends "base.html" %}
 {% block title %}CSA Customers{% endblock %}
 {% block content %}
-  <div class="header">
-<h1>Farmr: CSA Your Way</h1>
-  <h3>Farm Sharing Made Easy</h3>
-  </div>
   <div class="lines">
-  <h1>Farmers:</h1>
-  <p1>Enter a number into the text boxes the number of pounds of vegetables you can provide: <br></p1>
+  <p1>Enter the number of pounds of vegetables you can provide: <br></p1>
 <form action="/farmers/distribution" method="post">
 Full Name: <input type="text" name="name"><br>
 <p1>Onions:</p1>
