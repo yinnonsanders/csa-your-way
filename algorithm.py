@@ -33,7 +33,7 @@ class User(object):
         """returns a box object based on preferences and yield
         input yieldDict: Dictionary that tells the weekly yield
         """
-        get_scaled_prices(vegetablePrices)
+        prices = get_scaled_prices(vegetablePrices)
         for vegetable in vegetableList:
              
         
