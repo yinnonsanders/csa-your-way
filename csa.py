@@ -44,7 +44,6 @@ def mynavbar():
         Subgroup('Farmers',
         	View('Calculate Distribution', 'submit_yield'),
         	View('Download User Dataset', 'download_dataset')),
-        View('Farmers', 'farmers'),
         View('About', 'about')
     )
 
