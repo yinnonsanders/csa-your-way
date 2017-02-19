@@ -1,5 +1,8 @@
 html
 {
-   background-image: url("farm.jpg");
    text-align: center;
+}
+body
+{
+   background-image: url("farm.jpg");
 }
