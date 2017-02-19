@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, request
 from flask_bootstrap import Bootstrap
 from flask_nav import Nav
-from flask_nav.elements import Navbar, View
+from flask_nav.elements import Navbar, Subgroup, View
 from flask_sqlalchemy import SQLAlchemy
 
 import os
@@ -21,20 +21,26 @@ nav = Nav(app)
 class UserEntry(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String)
+	username = db.Column(db.String, unique=True)
+	password = db.Column(db.String)
 	preferences = db.Column(db.JSON)
 	shares = db.Column(db.Integer)
 
-	def __init__(self, name, preferences, shares):
+	def __init__(self, name, username, password, preferences, shares):
 		self.name = name
+		self.username = username
+		self.password = password
 		self.preferences = preferences
 		self.shares = shares
 
 @nav.navigation()
 def mynavbar():
     return Navbar(
-        'CSA',
+        'CSA Your Way',
         View('Home', 'index'),
-        View('Customers', 'customers'),
+        Subgroup('Customers',
+        	View('New Customer', new_customer),
+        	View('Update Preferences', customer_login)),
         View('Farmers', 'farmers')
     )
 
@@ -42,13 +48,18 @@ def mynavbar():
 def index():
 	return render_template('index.html')
 
-@app.route('/customers/preferences')
-def customers():
-	return render_template('customers.html')
+@app.route('/customers/new')
+def new_customer():
+	return render_template('newcustomer.html')
 
-@app.route('/customers/submit', methods=['POST'])
+@app.route('/customers/new/submit', methods=['POST'])
 def submit_preferences():
 	name = request.form['name']
+	username = request.form['username']
+	password = request.form['password']
+
+	if UserEntry.query.filter_by(username=username):
+		return render_template('error.html')
 
 	preferences = {}
 	for vegetable in vegetableList:
@@ -57,7 +68,31 @@ def submit_preferences():
 
 	shares = request.form['shares']
 
-	db.session.add(UserEntry(name, preferences, shares))
+	db.session.add(UserEntry(name, username, password, preferences, shares))
+	db.session.commit()
+
+	return render_template('thankyou.html')
+
+@app.route('/customers/login')
+def customer_login():
+	return render_template('login.html')
+
+@app.route('customers/update', methods=['POST'])
+def update_prefs():
+	username = request.form['username']
+	password = request.form['password']
+	if UserEntry.query.filter_by(username=username, password=password);
+
+@app.route('/customers/update/submit', methods=['POST'])
+def submit_preferences():
+	preferences = {}
+	for vegetable in vegetableList:
+		if request.form[vegetable]:
+			preferences[vegetable] = request.form[vegetable]
+
+	shares = request.form['shares']
+
+	db.session.add(UserEntry(name, username, password, preferences, shares))
 	db.session.commit()
 
 	return render_template('thankyou.html')
