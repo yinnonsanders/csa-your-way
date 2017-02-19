@@ -1,11 +1,6 @@
 {% extends "base.html" %}
-<!doctype html>
-<html>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<head>
-  <title>CSA Your Way</title>
-</head>
-<body>
+{% block title %}CSA Your Way{% endblock %}
+{% block content %}
   <div class="header">
 <h1>Farmr: CSA Your Way</h1>
   <h3>Farm Sharing Made Easy</h3>
@@ -15,5 +10,4 @@
 <h1 class="farmer">If you are a farmer and would like to sign up, click the link in the navigation bar</h1>
 <h1 class="consumer">If you are a consumer and would like to purchase a plot, click the link in the navigation bar</h1>
   </div>
-</body>
-</html>
+{% endblock %}
