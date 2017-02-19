@@ -17,7 +17,6 @@ class Box(object):
         amount is an int or float.
         """
         
-        
         self.items[vegetable] = amount
 
 class User(object):
