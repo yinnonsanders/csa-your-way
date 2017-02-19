@@ -1,41 +1,56 @@
 #algorithm for csa-your-way
+import vegetables
 
 class Box(object):
     """
     Attributes:
-    User - User associated with box (Instance of User)
-    Items - List of items in box (List of Vegetables)
+    Userid - Id of user associated with this box (int)
+    Items - Dictionary of items in box and amount (dict)
     """
-    def __init__(self, user, items):
-        self.user = user
-        self.items = []
+    def __init__(self, userid):
+        self.userid = userid
+        self.items = {}
     
-    def add(self, item):
+    def add(self, vegetable, amount):
         """
-        Precondition: item is of class Vegetable
+        Precondition: vegetable is a valid vegetable
+        amount is an int or float.
         """
-        assert isinstance(item, Vegetable)
         
-        self.items.append(item)
+        self.items[vegetable] = amount
 
 class User(object):
     
-    def __init__(self, id, preferences, shares):
+    def __init__(self, id, preferences, shares, box):
     """
     input id: int that points to costumer's id
-    input preferences: list of 5 ints, 1 to 5, that correspond to user produce preferences
+    input preferences: dictionary that correspond to user produce preferences, 0 to 10
     input shares: int that equals the number of shares that user owns
     """
     
-    
+<<<<<<< HEAD
+    def get_box(self, yieldDict):
+        """returns a box object based on preferences and yield
+        input yieldDict: Dictionary that tells the weekly yield
+        """
+        get_scaled_prices(vegetablePrices)
+        for vegetable in vegetableList:
+             
+        
+    def get_scaled_prices(vegetablePrices):    
+        
+def get_distribution(userList, yieldDict):
+=======
+    def get_box():
 
-class Vegetable(object):
-    """
-    Attributes:
-    Name - name of vegetable (str)
-    Amount - amount of vegetable (int)
+    
+def get_distribution(userList, yieldDicts):
+>>>>>>> origin/master
+    """returns a list of boxes
+    yieldDicts: weekly produce yield
+    userList" list of users
     """
     
-    def __init__(self, name, amount):
-        self.name = name
-        self.amount = amount
+    
+    
+    
