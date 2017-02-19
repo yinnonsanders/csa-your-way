@@ -1,15 +1,15 @@
 from flask import Flask
-from flask import request
+from flask import render_template, request
 from flask_bootstrap import Bootstrap
 from flask_nav import Nav
 from flask_nav.elements import Navbar, View
 from flask_sqlalchemy import SQLAlchemy
 
-from vegetables import vegetableList
+from vegetables import *
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Bootstrap(app)
@@ -61,5 +61,5 @@ def farmers():
 
 @app.route('/farmers/distribution', methods=['POST'])
 def display_distribution():
-	
+
 	return render_template('displaydistribution.html')
