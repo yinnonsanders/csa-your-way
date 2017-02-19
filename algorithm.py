@@ -42,12 +42,12 @@ class User(object):
         weightedpref = {}
         total = 0
         for veg in vegetablePrices:
-            total += preferences[veg]*vegetablePrices[veg]
+            total += self.preferences[veg]*vegetablePrices[veg]
         
         for veg in vegetablePrices:
-            weightedpref[veg] = preferences[veg]/total
+            weightedpref[veg] = self.preferences[veg]/total
         
-        return weightedpref
+        self.preferences = weightedpref
 
     
 def get_distribution(userList, yieldDict):
