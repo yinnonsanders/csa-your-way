@@ -58,7 +58,7 @@ def submit_preferences():
 	username = request.form['username']
 	password = request.form['password']
 
-	if UserEntry.query.filter_by(username=username):
+	if UserEntry.query.filter_by(username=username).first():
 		return render_template('newcustomer.html', error=True)
 
 	preferences = {}
