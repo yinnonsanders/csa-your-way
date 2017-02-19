@@ -1,87 +1,99 @@
 {% extends "base.html" %}
 {% block title %}CSA Customers{% endblock %}
 {% block content %}
-  <p1>Select from the dropdown menus for each vegetable on a 
-      scale from 0-10 indicating how much you prefer it, 0 indicating you want none, 
-      and 10 indicating your absolute preference:</p1>
-<form action="/customers/update/submit" method="post">
-<p1>Onions</p1>
-<select name="onions">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-  </select>
-<p1>Carrots</p1>
-  <select name="carrots">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-<p1>Potatoes</p1>
-<select name="potatoes">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-<p1>Squash</p1>
-  <select name="squash">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-<p1>Celery</p1>
-<select name="celery">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-<p1>Shares</p1>
-<select name="shares">
-<option value="1" selected>1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-</select> <br>
-<input type="hidden" name="user_id" value="{{ user_id }}">
-<input class="btn btn-primary btn-lg" type="submit" value="Submit">
-</form>
+<div class="container">
+  {% if error %}
+  <div class="row">
+    <h1>{{ error }}</h1>
+  </div>
+  {% endif %}
+
+  <div class="row">
+    <p1>Select from the dropdown menus for each vegetable on a scale from 0-10 indicating how much you prefer it, 0 indicating you want none, and 10 indicating your absolute preference:</p1>
+  </div>
+  <form action="/customers/update/submit" method="post">
+  <div class="row">
+    <label>Onions: </label>
+    <select name="onions">
+      <option value="0" selected>0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <label>Carrots: </label>
+    <select name="carrots">
+      <option value="0" selected>0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <label>Potatoes: </label>
+    <select name="potatoes">
+      <option value="0" selected>0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <label>Squash: </label>
+    <select name="squash">
+      <option value="0" selected>0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <label>Celery: </label>
+    <select name="celery">
+      <option value="0" selected>0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <label>Shares: </label>
+    <select name="shares">
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select> <br>
+  </div>
+  <input type="hidden" name="user_id" value="{{ user_id }}">
+  <div class="row">
+    <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+  </div>
+  </form>
+</div>
 {% endblock %}
