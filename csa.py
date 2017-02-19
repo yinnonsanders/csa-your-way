@@ -59,7 +59,7 @@ def submit_preferences():
 	password = request.form['password']
 
 	if UserEntry.query.filter_by(username=username):
-		return render_template('error.html')
+		return render_template('newcustomer.html', error=True)
 
 	preferences = {}
 	for vegetable in vegetableList:
@@ -81,10 +81,19 @@ def customer_login():
 def update_prefs():
 	username = request.form['username']
 	password = request.form['password']
-	if UserEntry.query.filter_by(username=username, password=password);
+	user = UserEntry.query.filter_by(username=username, password=password).first()
+
+	if not user:
+		return render_template('login.html', error=True)
+
+	return render_template('update.html', user_id=user.id)
 
 @app.route('/customers/update/submit', methods=['POST'])
 def submit_preferences():
+	user_id = request.form['user_id']
+
+	user = UserEntry.query.get(user_id)
+
 	preferences = {}
 	for vegetable in vegetableList:
 		if request.form[vegetable]:
@@ -92,7 +101,8 @@ def submit_preferences():
 
 	shares = request.form['shares']
 
-	db.session.add(UserEntry(name, username, password, preferences, shares))
+	user.preferences = preferences
+	user.shares = shares
 	db.session.commit()
 
 	return render_template('thankyou.html')

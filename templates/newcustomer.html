@@ -5,6 +5,12 @@
 <h1>Farmr: CSA Your Way</h1>
   <h3>Farm Sharing Made Easy</h3>
   </div>
+  {% if error %}
+  <div class="row">
+    <h1>That username is already taken!</h1>
+  </div>
+  {% endif %}
+
   <div class="box" style="background-color:white;">
   <h1>Consumers:</h1>
   <p1>Select from the dropdown menus for each vegetable on a 
