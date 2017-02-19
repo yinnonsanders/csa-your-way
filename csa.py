@@ -59,7 +59,7 @@ def submit_preferences():
 	password = request.form['password']
 
 	if UserEntry.query.filter_by(username=username).first():
-		return render_template('newcustomer.html', error=True)
+		return render_template('newcustomer.html', error="That username is already taken!")
 
 	preferences = {}
 	for vegetable in vegetableList:
@@ -84,7 +84,7 @@ def update_preferences():
 	user = UserEntry.query.filter_by(username=username, password=password).first()
 
 	if not user:
-		return render_template('login.html', error=True)
+		return render_template('login.html', error="Wrong username or password")
 
 	return render_template('update.html', user_id=user.id)
 

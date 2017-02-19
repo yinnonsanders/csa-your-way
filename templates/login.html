@@ -6,10 +6,12 @@
   <h3>Farm Sharing Made Easy</h3>
   </div>
       	<img src="http://www.aginnovators.org.au/sites/default/files/Farm%20Walk_Houston's%20Farm%20Tasmania_Houston's%20Farm_ORIGINAL.jpg"  width="500" height="250">
+  {% if error %}
+  <div class="row">
+    <h1>{{ error }}</h1>
+  </div>
+  {% endif %}
   <h1>Consumers:</h1>
-  <p1>Select from the dropdown menus for each vegetable on a 
-      scale from 0-10 indicating how much you prefer it, 0 indicating you want none, 
-      and 10 indicating your absolute preference:</p1>
 <form action="/customers/update" method="post">
 Username: <br> <input type="text" name="username"><br>
 Password: <br><input type="password" name="password"><br>
