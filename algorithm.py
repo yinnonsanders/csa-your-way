@@ -34,7 +34,7 @@ class User(object):
         """
         get_scaled_prices(vegetablePrices)
         for vegetable in vegetableList:
-            
+             
         
     def get_scaled_prices(vegetablePrices):    
         
