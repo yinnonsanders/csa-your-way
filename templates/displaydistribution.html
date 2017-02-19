@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}CSA Farmers{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="header">
+    <h1>Farmr: CSA Your Way</h1>
+    <h3>Farm Sharing Made Easy</h3>
+  </div>
+  <ul class=entries>
+  {% for (box, name) in display_list %}
+    <li>{{ name }}<br>
+      <ul>
+      {% for vegetable in box.items %}
+        <li>{{ box.items[vegetable] + " " + vegetable }}
+      </ul>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

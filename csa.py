@@ -20,10 +20,12 @@ nav = Nav(app)
 
 class UserEntry(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String)
 	preferences = db.Column(db.JSON)
 	shares = db.Column(db.Integer)
 
-	def __init__(self, preferences, shares):
+	def __init__(self, name, preferences, shares):
+		self.name = name
 		self.preferences = preferences
 		self.shares = shares
 
@@ -46,6 +48,8 @@ def customers():
 
 @app.route('/customers/submit', methods=['POST'])
 def submit_preferences():
+	name = request.form['name']
+
 	preferences = {}
 	for vegetable in vegetableList:
 		if request.form[vegetable]:
@@ -53,7 +57,7 @@ def submit_preferences():
 
 	shares = request.form['shares']
 
-	db.session.add(UserEntry(preferences, shares))
+	db.session.add(UserEntry(name, preferences, shares))
 	db.session.commit()
 
 	return render_template('thankyou.html')
@@ -75,5 +79,8 @@ def display_distribution():
 		user_list.append(User(user_entry.id, user_entry.preferences, user_entry.shares))
 
 	box_list = get_distribution(user_list, yield_dict)
+	display_list = []
+	for box in box_list:
+		display_list.append(box, UserEntry.query.get(box.userid).name)
 
-	return render_template('displaydistribution.html')
+	return render_template('displaydistribution.html', display_list=display_list)
