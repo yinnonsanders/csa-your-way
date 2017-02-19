@@ -80,7 +80,7 @@ def display_distribution():
 		for vegetable in vegetableList:
 			if user_entry.preferences[vegetable]:
 				preferences[vegetable] = int(user_entry.preferences[vegetable])
-		user_list.append(User(user_entry.id, user_entry.preferences, user_entry.shares))
+		user_list.append(User(user_entry.id, preferences, user_entry.shares))
 
 	box_list = get_distribution(user_list, yield_dict)
 	display_list = []
