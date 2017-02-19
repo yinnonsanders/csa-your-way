@@ -1,5 +1,5 @@
 #algorithm for csa-your-way
-import vegetables
+from vegetables import *
 
 class Box(object):
     """
@@ -28,7 +28,7 @@ class User(object):
     input shares: int that equals the number of shares that user owns
     """
     
-<<<<<<< HEAD
+
     def get_box(self, yieldDict):
         """returns a box object based on preferences and yield
         input yieldDict: Dictionary that tells the weekly yield
@@ -38,18 +38,19 @@ class User(object):
              
         
     def get_scaled_prices(vegetablePrices):    
-        
-def get_distribution(userList, yieldDict):
-=======
-    def get_box():
+        pass
 
     
-def get_distribution(userList, yieldDicts):
->>>>>>> origin/master
+def get_distribution(userList, yieldDict):
+
     """returns a list of boxes
-    yieldDicts: weekly produce yield
+    yieldDict: weekly produce yield
     userList" list of users
     """
+    boxList = []
+    for user in userList:
+        boxList.append(user.get_box(yieldDict))
+    return boxList
     
     
     
