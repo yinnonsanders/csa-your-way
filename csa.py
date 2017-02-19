@@ -53,7 +53,7 @@ def new_customer():
 	return render_template('newcustomer.html')
 
 @app.route('/customers/new/submit', methods=['POST'])
-def new_preferences():
+def submit_preferences():
 	name = request.form['name']
 	username = request.form['username']
 	password = request.form['password']
@@ -78,7 +78,7 @@ def customer_login():
 	return render_template('login.html')
 
 @app.route('/customers/update', methods=['POST'])
-def update_prefs():
+def update_preferences():
 	username = request.form['username']
 	password = request.form['password']
 	user = UserEntry.query.filter_by(username=username, password=password).first()
@@ -89,7 +89,7 @@ def update_prefs():
 	return render_template('update.html', user_id=user.id)
 
 @app.route('/customers/update/submit', methods=['POST'])
-def update_preferences():
+def submit_preference_updates():
 	user_id = request.form['user_id']
 
 	user = UserEntry.query.get(user_id)

@@ -10,79 +10,9 @@
   <p1>Select from the dropdown menus for each vegetable on a 
       scale from 0-10 indicating how much you prefer it, 0 indicating you want none, 
       and 10 indicating your absolute preference:</p1>
-<form action="/customers/submit" method="post">
-<p1>Onions</p1>
-<select name="dropdown">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-  </select>
-<p1>carrots</p1>
-  <select name="dropdown">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-<p1>potatoes</p1>
-<select>
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-<p1>Squash</p1>
-  <select>
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-<p1>Celery</p1>
-<select name="dropdown">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-</select>
-First name: <input type="text" name="fname"><br>
-Last name: <input type="text" name="lname"><br>
-<input type="submit" value="Submit">
+<form action="/customers/update" method="post">
+Username: <br> <input type="text" name="username"><br>
+Password: <br><input type="text" name="password"><br>
+<input class="btn btn-default btn-lg" type="submit" value="Submit">
 </form>
 {% endblock %}
