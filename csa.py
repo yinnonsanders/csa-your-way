@@ -53,7 +53,7 @@ def new_customer():
 	return render_template('newcustomer.html')
 
 @app.route('/customers/new/submit', methods=['POST'])
-def submit_preferences():
+def new_preferences():
 	name = request.form['name']
 	username = request.form['username']
 	password = request.form['password']
@@ -89,7 +89,7 @@ def update_prefs():
 	return render_template('update.html', user_id=user.id)
 
 @app.route('/customers/update/submit', methods=['POST'])
-def submit_preferences():
+def update_preferences():
 	user_id = request.form['user_id']
 
 	user = UserEntry.query.get(user_id)
