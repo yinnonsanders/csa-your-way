@@ -76,6 +76,10 @@ def display_distribution():
 	user_entry_list = UserEntry.query.all()
 	user_list = []
 	for user_entry in user_entry_list:
+		preferences = {}
+		for vegetable in vegetableList:
+			if user_entry.preferences[vegetable]:
+				preferences[vegetable] = int(user_entry.preferences[vegetable])
 		user_list.append(User(user_entry.id, user_entry.preferences, user_entry.shares))
 
 	box_list = get_distribution(user_list, yield_dict)
