@@ -18,9 +18,9 @@ class Box(object):
 
 class User(object):
     
-    def __init__(self, id, preferences, shares):
+    def __init__(self, id, preferences, shares, box):
     """
     input id: int that points to costumer's id
-    input preferences: list of 5 ints, 1 to 5, that correspond to user produce preferences
+    input preferences: dictionary that correspond to user produce preferences, 0 to 10
     input shares: int that equals the number of shares that user owns
     """
