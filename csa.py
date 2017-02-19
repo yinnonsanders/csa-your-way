@@ -41,12 +41,17 @@ def mynavbar():
         Subgroup('Customers',
         	View('New Customer', 'new_customer'),
         	View('Update Preferences', 'customer_login')),
-        View('Farmers', 'farmers')
+        View('Farmers', 'farmers'),
+        View('About', 'about')
     )
 
 @app.route('/')
 def index():
 	return render_template('index.html')
+
+@app.route('/about')
+def index():
+	return render_template('about.html')
 
 @app.route('/customers/new')
 def new_customer():
