@@ -1,11 +1,14 @@
 #algorithm for csa-your-way
+import vegetables
 
 class Box(object):
     """
     Attributes:
-    Items - Dictionary of items in box and amount ()
+    Userid - Id of user associated with this box (int)
+    Items - Dictionary of items in box and amount (dict)
     """
-    def __init__(self, items):
+    def __init__(self, userid):
+        self.userid = userid
         self.items = {}
     
     def add(self, vegetable, amount):
