@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% block title %}CSA Customers{% endblock %}
 {% block content %}
-  <div class="header">
+   <div class="header">
 <h1>Farmr: CSA Your Way</h1>
   <h3>Farm Sharing Made Easy</h3>
   </div>
-      	<img src="http://www.aginnovators.org.au/sites/default/files/Farm%20Walk_Houston's%20Farm%20Tasmania_Houston's%20Farm_ORIGINAL.jpg"  width="500" height="250">
+  <div class="box" style="background-color:white;">
   <h1>Consumers:</h1>
   <p1>Select from the dropdown menus for each vegetable on a 
-      scale from 0-10 indicating how much you prefer it, 0 indicating you want none, 
+      scale from 0-10 <br> indicating how much you prefer it, 0 indicating you want none, 
       and 10 indicating your absolute preference:</p1>
 <form action="/customers/new/submit" method="post">
+Name: <br> <input type="text" name="name"><br>
+Username: <br> <input type="text" name="username"><br>
+Password: <br><input type="text" name="password"><br>
 <p1>Onions</p1>
 <select name="dropdown">
 <option value="0" selected>0</option>
@@ -25,7 +28,7 @@
 <option value="9">9</option>
 <option value="10">10</option>
   </select>
-<p1>carrots</p1>
+<p1>Carrots</p1>
   <select name="dropdown">
 <option value="0" selected>0</option>
 <option value="1">1</option>
@@ -39,7 +42,7 @@
 <option value="9">9</option>
 <option value="10">10</option>
 </select>
-<p1>potatoes</p1>
+<p1>Potatoes</p1>
 <select>
 <option value="0" selected>0</option>
 <option value="1">1</option>
@@ -81,8 +84,7 @@
 <option value="9">9</option>
 <option value="10">10</option>
 </select>
-First name: <input type="text" name="fname"><br>
-Last name: <input type="text" name="lname"><br>
-<input type="submit" value="Submit">
+<input class="btn btn-default btn-lg" type="submit" value="Submit">
 </form>
+  </div>
 {% endblock %}
