@@ -70,7 +70,8 @@ def get_distribution(userList, yieldDict):
     
     boxList = []
     for user in userList:
-        user.weighted() #this method weights the 
+
+        user.weighted() #this method weights the
         
         for vegetable in vegetableList:
             totalPreference[vegetable] += user.preferences[vegetable]
