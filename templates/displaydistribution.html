@@ -11,7 +11,7 @@
     <li>{{ name }}<br>
       <ul>
       {% for vegetable in box.items %}
-        <li>{{ box.items[vegetable] + " " + vegetable }}
+        <li>{{ "{:.1f}".format(box.items[vegetable]) + " lbs. of " + vegetable }}
       {% endfor %}
       </ul>
   {% endfor %}
