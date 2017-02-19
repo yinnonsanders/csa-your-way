@@ -39,8 +39,8 @@ def mynavbar():
         'CSA Your Way',
         View('Home', 'index'),
         Subgroup('Customers',
-        	View('New Customer', new_customer),
-        	View('Update Preferences', customer_login)),
+        	View('New Customer', 'new_customer'),
+        	View('Update Preferences', 'customer_login')),
         View('Farmers', 'farmers')
     )
 
