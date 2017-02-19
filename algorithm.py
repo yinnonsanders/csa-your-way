@@ -19,7 +19,15 @@ class Box(object):
         self.items.append(item)
 
 class User(object):
-    pass
+    
+    def __init__(self, id, preferences, shares):
+    """
+    input id: int that points to costumer's id
+    input preferences: list of 5 ints, 1 to 5, that correspond to user produce preferences
+    input shares: int that equals the number of shares that user owns
+    """
+    
+    
 
 class Vegetable(object):
     """
@@ -31,4 +39,3 @@ class Vegetable(object):
     def __init__(self, name, amount):
         self.name = name
         self.amount = amount
-    
