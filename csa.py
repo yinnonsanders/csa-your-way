@@ -77,7 +77,7 @@ def submit_preferences():
 def customer_login():
 	return render_template('login.html')
 
-@app.route('customers/update', methods=['POST'])
+@app.route('/customers/update', methods=['POST'])
 def update_prefs():
 	username = request.form['username']
 	password = request.form['password']
