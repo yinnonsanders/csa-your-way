@@ -54,7 +54,7 @@ def submit_preferences():
 	shares = request.form['shares']
 
 	db.session.add(UserEntry(preferences, shares))
-	db.commit()
+	db.session.commit()
 
 	return render_template('thankyou.html')
 
