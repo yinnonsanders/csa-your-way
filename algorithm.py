@@ -12,7 +12,7 @@ class Box(object):
     
     def add(self, item):
         """
-        Precondition: item is of class vegetable
+        Precondition: item is of class Vegetable
         """
         assert isinstance(item, Vegetable)
         
@@ -22,3 +22,13 @@ class User(object):
     pass
 
 class Vegetable(object):
+    """
+    Attributes:
+    Name - name of vegetable (str)
+    Amount - amount of vegetable (int)
+    """
+    
+    def __init__(self, name, amount):
+        self.name = name
+        self.amount = amount
+    
