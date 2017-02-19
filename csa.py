@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, send_file
+from flask import redirect, render_template, request
 from flask_bootstrap import Bootstrap
 from flask_nav import Nav
 from flask_nav.elements import Navbar, Subgroup, View
@@ -143,4 +143,4 @@ def display_distribution():
 
 @app.route('/farmers/dataset')
 def download_dataset():
-	return send_file("http://csa-clover.herokuapp.com/launch/get_xlsx")
+	return redirect("http://csa-clover.herokuapp.com/launch/get_xlsx")
