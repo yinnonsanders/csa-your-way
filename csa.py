@@ -5,17 +5,20 @@ from flask_nav import Nav
 from flask_nav.elements import Navbar, View
 from flask_sqlalchemy import SQLAlchemy
 
+import os
+
+# from algorithm import *
 from vegetables import *
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Bootstrap(app)
 nav = Nav(app)
 
-class User(db.Model):
+class UserEntry(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	preferences = db.Column(db.JSON)
 	shares = db.Column(db.Integer)
@@ -39,7 +42,7 @@ def index():
 
 @app.route('/customers/preferences')
 def customers():
-	pass
+	return render_template('customers.html')
 
 @app.route('/customers/submit', methods=['POST'])
 def submit_preferences():
@@ -50,16 +53,27 @@ def submit_preferences():
 
 	shares = request.form['shares']
 
-	db.session.add(User(preferences, shares))
+	db.session.add(UserEntry(preferences, shares))
 	db.commit()
 
 	return render_template('thankyou.html')
 
 @app.route('/farmers/yield')
 def farmers():
-	pass
+	return render_template('farmers.html')
 
 @app.route('/farmers/distribution', methods=['POST'])
 def display_distribution():
+	yield_dict = {}
+	for vegetable in vegetableList:
+		if request.form[vegetable]:
+			yield_dict[vegetable] = request.form[vegetable]
+
+	user_entry_list = UserEntry.query.all()
+	user_list = []
+	for user_entry in user_entry_list:
+		user_list.append(User(user_entry.id, user_entry.preferences, user_entry.shares))
+
+	box_list = get_distribution(user_list, yield_dict)
 
 	return render_template('displaydistribution.html')

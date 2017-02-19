@@ -34,6 +34,7 @@ class User(object):
         """returns a box object based on preferences and yield
         input yieldDict: Dictionary that tells the weekly yield
         """
+<<<<<<< HEAD
         box = Box(self.id)
         
         for vegetable in vegetableList:
@@ -42,6 +43,24 @@ class User(object):
             
         return box
    
+=======
+        prices = self.get_scaled_prices(vegetablePrices)
+        for vegetable in vegetableList:
+             
+        
+    def weighted(self):
+        """Returns a weighted dictionary of preferences"""
+        weightedpref = {}
+        total = 0
+        for veg in vegetablePrices:
+            total += self.preferences[veg]*vegetablePrices[veg]
+        
+        for veg in vegetablePrices:
+            weightedpref[veg] = self.preferences[veg]/total
+        
+        self.preferences = weightedpref
+
+>>>>>>> origin/master
     
 def get_distribution(userList, yieldDict):
 
