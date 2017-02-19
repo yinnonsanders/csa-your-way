@@ -85,6 +85,6 @@ def display_distribution():
 	box_list = get_distribution(user_list, yield_dict)
 	display_list = []
 	for box in box_list:
-		display_list.append(box, UserEntry.query.get(box.userid).name)
+		display_list.append((box, UserEntry.query.get(box.userid).name))
 
 	return render_template('displaydistribution.html', display_list=display_list)
