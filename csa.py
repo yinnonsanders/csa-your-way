@@ -71,7 +71,7 @@ def display_distribution():
 	yield_dict = {}
 	for vegetable in vegetableList:
 		if request.form[vegetable]:
-			yield_dict[vegetable] = request.form[vegetable]
+			yield_dict[vegetable] = int(request.form[vegetable])
 
 	user_entry_list = UserEntry.query.all()
 	user_list = []
