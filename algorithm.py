@@ -3,20 +3,18 @@
 class Box(object):
     """
     Attributes:
-    User - User associated with box (Instance of User)
-    Items - List of items in box (List of Vegetables)
+    Items - Dictionary of items in box and amount ()
     """
-    def __init__(self, user, items):
-        self.user = user
-        self.items = []
+    def __init__(self, items):
+        self.items = {}
     
-    def add(self, item):
+    def add(self, vegetable, amount):
         """
-        Precondition: item is of class Vegetable
+        Precondition: vegetable is a valid vegetable
+        amount is an int or float.
         """
-        assert isinstance(item, Vegetable)
         
-        self.items.append(item)
+        self.items[vegetable] = amount
 
 class User(object):
     
@@ -26,16 +24,3 @@ class User(object):
     input preferences: list of 5 ints, 1 to 5, that correspond to user produce preferences
     input shares: int that equals the number of shares that user owns
     """
-    
-    
-
-class Vegetable(object):
-    """
-    Attributes:
-    Name - name of vegetable (str)
-    Amount - amount of vegetable (int)
-    """
-    
-    def __init__(self, name, amount):
-        self.name = name
-        self.amount = amount
