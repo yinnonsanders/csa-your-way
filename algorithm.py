@@ -1,5 +1,7 @@
 #algorithm for csa-your-way
 
-def foo():
+class Box(object):
     pass
 
+class User(object):
+    pass
