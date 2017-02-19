@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, send_file
 from flask_bootstrap import Bootstrap
 from flask_nav import Nav
 from flask_nav.elements import Navbar, Subgroup, View
@@ -41,6 +41,9 @@ def mynavbar():
         Subgroup('Customers',
         	View('New Customer', 'new_customer'),
         	View('Update Preferences', 'customer_login')),
+        Subgroup('Farmers',
+        	View('Calculate Distribution', 'submit_yield'),
+        	View('Download User Dataset', 'download_dataset')),
         View('Farmers', 'farmers'),
         View('About', 'about')
     )
@@ -113,7 +116,7 @@ def submit_preference_updates():
 	return render_template('thankyou.html')
 
 @app.route('/farmers/yield')
-def farmers():
+def submit_yield():
 	return render_template('farmers.html')
 
 @app.route('/farmers/distribution', methods=['POST'])
@@ -138,3 +141,7 @@ def display_distribution():
 		display_list.append((box, UserEntry.query.get(box.userid).name))
 
 	return render_template('displaydistribution.html', display_list=display_list)
+
+@app.route('/farmers/dataset')
+def download_dataset():
+	return send_file('http://csa-clover.herokuapp.com/launch/get_xlsx')
