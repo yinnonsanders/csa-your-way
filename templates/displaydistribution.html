@@ -12,6 +12,7 @@
       <ul>
       {% for vegetable in box.items %}
         <li>{{ box.items[vegetable] + " " + vegetable }}
+      {% endfor %}
       </ul>
   {% endfor %}
   </ul>
