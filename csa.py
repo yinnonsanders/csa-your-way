@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 import os
 
-# from algorithm import *
+from algorithm import *
 from vegetables import *
 
 app = Flask(__name__)
